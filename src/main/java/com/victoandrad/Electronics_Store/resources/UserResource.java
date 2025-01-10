@@ -16,8 +16,12 @@ import java.util.List;
 @RequestMapping(value = "/users")
 public class UserResource {
 
+    private final UserService service;
+
     @Autowired
-    private UserService service;
+    public UserResource(UserService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public ResponseEntity<List<User>> findAll() {
