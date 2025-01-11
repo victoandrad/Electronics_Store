@@ -1,6 +1,7 @@
 package com.victoandrad.Electronics_Store.configs;
 
 import com.victoandrad.Electronics_Store.models.order.Order;
+import com.victoandrad.Electronics_Store.models.order.OrderStatus;
 import com.victoandrad.Electronics_Store.models.user.User;
 import com.victoandrad.Electronics_Store.repositories.OrderRepository;
 import com.victoandrad.Electronics_Store.repositories.UserRepository;
@@ -32,8 +33,8 @@ public class TestConfig implements CommandLineRunner {
         User user2 = new User(null, "Luiza Aurora", "luiza@gmail.com", "432991172893", "luiza");
         userRepository.saveAll(Arrays.asList(user1, user2));
 
-        Order order1 = new Order(null, Instant.now(), user1);
-        Order order2 = new Order(null, Instant.now(), user2);
+        Order order1 = new Order(null, Instant.now(), OrderStatus.WAITING_PAYMENT, user1);
+        Order order2 = new Order(null, Instant.now(), OrderStatus.PAID, user2);
         orderRepository.saveAll(Arrays.asList(order1, order2));
     }
 }
