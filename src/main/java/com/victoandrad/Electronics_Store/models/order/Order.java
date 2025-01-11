@@ -1,6 +1,8 @@
-package com.victoandrad.Electronics_Store.entities;
+package com.victoandrad.Electronics_Store.models.order;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.victoandrad.Electronics_Store.models.user.User;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -22,6 +24,7 @@ public class Order implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant moment;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;

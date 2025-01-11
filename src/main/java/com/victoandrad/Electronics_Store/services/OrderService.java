@@ -1,6 +1,6 @@
 package com.victoandrad.Electronics_Store.services;
 
-import com.victoandrad.Electronics_Store.entities.Order;
+import com.victoandrad.Electronics_Store.models.order.Order;
 import com.victoandrad.Electronics_Store.repositories.OrderRepository;
 import com.victoandrad.Electronics_Store.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

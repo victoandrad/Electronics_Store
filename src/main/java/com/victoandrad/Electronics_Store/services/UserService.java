@@ -1,6 +1,6 @@
 package com.victoandrad.Electronics_Store.services;
 
-import com.victoandrad.Electronics_Store.entities.User;
+import com.victoandrad.Electronics_Store.models.user.User;
 import com.victoandrad.Electronics_Store.repositories.UserRepository;
 import com.victoandrad.Electronics_Store.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.victoandrad.Electronics_Store.resources;
+package com.victoandrad.Electronics_Store.controllers;
 
-import com.victoandrad.Electronics_Store.entities.Order;
+import com.victoandrad.Electronics_Store.models.order.Order;
 import com.victoandrad.Electronics_Store.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/orders")
-public class OrderResource {
+public class OrderController {
 
     private final OrderService service;
 
     @Autowired
-    public OrderResource(OrderService service) {
+    public OrderController(OrderService service) {
         this.service = service;
     }
 

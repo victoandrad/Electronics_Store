@@ -1,6 +1,6 @@
-package com.victoandrad.Electronics_Store.resources;
+package com.victoandrad.Electronics_Store.controllers;
 
-import com.victoandrad.Electronics_Store.entities.User;
+import com.victoandrad.Electronics_Store.models.user.User;
 import com.victoandrad.Electronics_Store.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserResource {
+public class UserController {
 
     private final UserService service;
 
     @Autowired
-    public UserResource(UserService service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 

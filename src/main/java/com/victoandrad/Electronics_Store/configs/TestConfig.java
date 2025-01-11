@@ -1,7 +1,7 @@
 package com.victoandrad.Electronics_Store.configs;
 
-import com.victoandrad.Electronics_Store.entities.Order;
-import com.victoandrad.Electronics_Store.entities.User;
+import com.victoandrad.Electronics_Store.models.order.Order;
+import com.victoandrad.Electronics_Store.models.user.User;
 import com.victoandrad.Electronics_Store.repositories.OrderRepository;
 import com.victoandrad.Electronics_Store.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

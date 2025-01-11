@@ -1,6 +1,6 @@
-package com.victoandrad.Electronics_Store.entities;
+package com.victoandrad.Electronics_Store.models.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.victoandrad.Electronics_Store.models.order.Order;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -24,7 +24,6 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
