@@ -2,13 +2,11 @@ package com.victoandrad.Electronics_Store.configs;
 
 import com.victoandrad.Electronics_Store.models.category.Category;
 import com.victoandrad.Electronics_Store.models.order.Order;
+import com.victoandrad.Electronics_Store.models.order.OrderItem;
 import com.victoandrad.Electronics_Store.models.order.OrderStatus;
 import com.victoandrad.Electronics_Store.models.product.Product;
 import com.victoandrad.Electronics_Store.models.user.User;
-import com.victoandrad.Electronics_Store.repositories.CategoryRepository;
-import com.victoandrad.Electronics_Store.repositories.OrderRepository;
-import com.victoandrad.Electronics_Store.repositories.ProductRepository;
-import com.victoandrad.Electronics_Store.repositories.UserRepository;
+import com.victoandrad.Electronics_Store.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -25,13 +23,15 @@ public class TestConfig implements CommandLineRunner {
     private final OrderRepository orderRepository;
     private final CategoryRepository categoryRepository;
     private final ProductRepository productRepository;
+    private final OrderItemRepository orderItemRepository;
 
     @Autowired
-    public TestConfig(UserRepository userRepository, OrderRepository orderRepository, CategoryRepository categoryRepository, ProductRepository productRepository) {
+    public TestConfig(UserRepository userRepository, OrderRepository orderRepository, CategoryRepository categoryRepository, ProductRepository productRepository, OrderItemRepository orderItemRepository) {
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
+        this.orderItemRepository = orderItemRepository;
     }
 
     @Override
@@ -64,5 +64,10 @@ public class TestConfig implements CommandLineRunner {
         p4.getCategories().add(category3);
         p5.getCategories().add(category2);
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+
+        OrderItem oi1 = new OrderItem(order1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(order1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(order2, p3, 2, p3.getPrice());
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2));
     }
 }

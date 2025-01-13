@@ -1,5 +1,6 @@
 package com.victoandrad.Electronics_Store.models.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.victoandrad.Electronics_Store.models.order.Order;
 import jakarta.persistence.*;
 
@@ -78,6 +79,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    @JsonIgnore
     public List<Order> getOrders() {
         return orders;
     }
