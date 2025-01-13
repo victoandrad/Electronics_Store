@@ -1,5 +1,6 @@
 package com.victoandrad.Electronics_Store.models.category;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.victoandrad.Electronics_Store.models.product.Product;
 import jakarta.persistence.*;
 
@@ -21,7 +22,8 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @Transient
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
     public Category() {
