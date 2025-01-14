@@ -1,5 +1,6 @@
 package com.victoandrad.Electronics_Store.models.payment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.victoandrad.Electronics_Store.models.order.Order;
 import jakarta.persistence.*;
 
@@ -49,6 +50,7 @@ public class Payment implements Serializable {
         this.moment = moment;
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return order;
     }
