@@ -2,8 +2,11 @@ package com.victoandrad.Electronics_Store.services;
 
 import com.victoandrad.Electronics_Store.models.user.User;
 import com.victoandrad.Electronics_Store.repositories.UserRepository;
+import com.victoandrad.Electronics_Store.services.exceptions.DatabaseException;
 import com.victoandrad.Electronics_Store.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +36,13 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        this.repository.deleteById(id);
+        try {
+            this.repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException(e.getMessage());
+        }
     }
 
     public User update(Long id, User obj) {
