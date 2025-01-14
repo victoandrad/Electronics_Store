@@ -20,11 +20,11 @@ public class CategoryService {
     }
 
     public List<Category> findAll() {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 
     public Category findById(Long id) {
-        Optional<Category> obj = repository.findById(id);
+        Optional<Category> obj = this.repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }

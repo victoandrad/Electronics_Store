@@ -25,13 +25,13 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<Category>> findAll() {
-        List<Category> list = service.findAll();
+        List<Category> list = this.service.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Category> findById(@PathVariable Long id) {
-        Category obj = service.findById(id);
+        Category obj = this.service.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(obj);
     }
 

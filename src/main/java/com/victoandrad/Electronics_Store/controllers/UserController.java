@@ -24,30 +24,30 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> findAll() {
-        List<User> list = service.findAll();
+        List<User> list = this.service.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
-        User obj = service.findById(id);
+        User obj = this.service.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(obj);
     }
 
     @PostMapping
     public ResponseEntity<User> insert(@RequestBody User user) {
-        User obj = service.insert(user);
-        URI uri = ServletUriComponentsBuilder
+        User obj = this.service.insert(user);
+        URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(obj.getId())
                 .toUri();
-        return ResponseEntity.created(uri).body(obj);
+        return ResponseEntity.created(location).body(obj);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        service.delete(id);
+        this.service.delete(id);
         return ResponseEntity.noContent().build();
     }
 

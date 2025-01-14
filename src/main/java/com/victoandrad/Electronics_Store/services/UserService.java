@@ -20,19 +20,19 @@ public class UserService {
     }
 
     public List<User> findAll() {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 
     public User findById(Long id) {
-        Optional<User> obj = repository.findById(id);
+        Optional<User> obj = this.repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User user) {
-        return repository.save(user);
+        return this.repository.save(user);
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        this.repository.deleteById(id);
     }
 }

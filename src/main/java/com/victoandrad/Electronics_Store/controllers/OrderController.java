@@ -25,13 +25,13 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<List<Order>> findAll() {
-        List<Order> list = service.findAll();
+        List<Order> list = this.service.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Order> findById(@PathVariable Long id) {
-        Order obj = service.findById(id);
+        Order obj = this.service.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(obj);
     }
 

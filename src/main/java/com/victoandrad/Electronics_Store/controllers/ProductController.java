@@ -25,13 +25,13 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<Product>> findAll() {
-        List<Product> list = service.findAll();
+        List<Product> list = this.service.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id) {
-        Product obj = service.findById(id);
+        Product obj = this.service.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(obj);
     }
 

@@ -20,11 +20,11 @@ public class ProductService {
     }
 
     public List<Product> findAll() {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 
     public Product findById(Long id) {
-        Optional<Product> obj = repository.findById(id);
+        Optional<Product> obj = this.repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }

@@ -20,11 +20,11 @@ public class OrderService {
     }
 
     public List<Order> findAll() {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 
     public Order findById(Long id) {
-        Optional<Order> obj = repository.findById(id);
+        Optional<Order> obj = this.repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }
